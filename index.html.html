@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pallavi Digital Media - YouTube CMS, music distribution, song launching, project management and digital promotion services.">
+<title>Pallavi Digital Media | Digital Music & Media Solutions</title>
+<style>
+:root{
+  --bg:#07080d; --card:#11131b; --text:#f5f7fb; --muted:#aeb4c2;
+  --line:rgba(255,255,255,.1); --accent:#ff1744; --accent2:#ff7a00;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;background:
+  radial-gradient(circle at 80% 0%,rgba(255,23,68,.16),transparent 30%),
+  radial-gradient(circle at 10% 20%,rgba(255,122,0,.08),transparent 28%),var(--bg);
+  color:var(--text);line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(var(--max),92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,8,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:22px;font-weight:900;letter-spacing:.3px}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:26px;color:#d8dce5;font-size:14px}
+.navlinks a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));font-weight:800;box-shadow:0 10px 30px rgba(255,23,68,.2)}
+.hero{padding:105px 0 85px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}
+.badge{display:inline-block;padding:7px 12px;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:#ffb0bd;background:rgba(255,23,68,.08);font-size:13px;font-weight:700;margin-bottom:20px}
+h1{font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-3px}
+.gradient{background:linear-gradient(90deg,#fff 20%,#ff5876 65%,#ff9b3d);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:18px;max-width:650px;margin:25px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn.secondary{background:transparent;border:1px solid var(--line);box-shadow:none}
+.hero-card{min-height:390px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));padding:28px;position:relative;overflow:hidden}
+.hero-card:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,23,68,.18);filter:blur(35px);right:-80px;top:-70px}
+.dashboard{position:relative;margin-top:25px;background:#0b0d13;border:1px solid var(--line);border-radius:20px;padding:20px}
+.dashboard .top{display:flex;justify-content:space-between;color:#aeb4c2;font-size:13px}
+.metric{font-size:36px;font-weight:900;margin:8px 0}
+.bars{display:flex;gap:7px;align-items:end;height:100px}
+.bar{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(to top,var(--accent),var(--accent2))}
+section{padding:85px 0}
+.section-head{text-align:center;max-width:720px;margin:0 auto 45px}
+.section-head h2{font-size:clamp(30px,4vw,48px);line-height:1.1;margin-bottom:12px}
+.section-head p{color:var(--muted)}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{padding:27px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:20px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,87,112,.45)}
+.icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(255,23,68,.12);font-size:22px;margin-bottom:20px}
+.card h3{font-size:20px;margin-bottom:9px}
+.card p{color:var(--muted);font-size:14px}
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}
+.about-box{padding:35px;border:1px solid var(--line);border-radius:25px;background:linear-gradient(145deg,rgba(255,23,68,.12),rgba(255,255,255,.03))}
+.about-box h3{font-size:32px;margin-bottom:10px}
+.about-box p{color:var(--muted)}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.point{padding:15px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+.point b{display:block;margin-bottom:3px}
+.point span{font-size:13px;color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.contact-card{padding:35px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.035)}
+.contact-item{padding:17px 0;border-bottom:1px solid var(--line)}
+.contact-item:last-child{border-bottom:0}
+.contact-item small{color:#888f9e;display:block}
+.contact-item a{color:#fff;font-weight:700}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#8f96a5;font-size:13px}
+@media(max-width:850px){
+ .navlinks{display:none}.hero{padding-top:75px}.hero-grid,.about,.contact{grid-template-columns:1fr}.services{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ h1{letter-spacing:-1.8px}.services{grid-template-columns:1fr}.points{grid-template-columns:1fr}
+ .nav .btn{display:none}.hero-card{min-height:330px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav">
+    <a class="logo" href="#home">Pallavi <span>Digital Media</span></a>
+    <div class="navlinks">
+      <a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="mailto:pallavidigtalmedia@gmail.com">Get Started</a>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">DIGITAL MEDIA • MUSIC • PROMOTION</div>
+      <h1>Build. Launch. <span class="gradient">Grow.</span></h1>
+      <p>Pallavi Digital Media helps artists, labels and brands manage their digital presence, distribute music and turn releases into powerful promotional campaigns.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Talk to Us</a>
+        <a class="btn secondary" href="#services">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div style="font-weight:800;font-size:18px">Pallavi Digital Media</div>
+      <div style="color:#9ca3b2;font-size:13px">Digital growth partner for creators</div>
+      <div class="dashboard">
+        <div class="top"><span>Digital Performance</span><span>LIVE</span></div>
+        <div class="metric">360° Media Support</div>
+        <div style="color:#8f96a5;font-size:13px">CMS • Distribution • Promotion • Management</div>
+        <div class="bars" aria-hidden="true">
+          <div class="bar" style="height:34%"></div><div class="bar" style="height:49%"></div>
+          <div class="bar" style="height:43%"></div><div class="bar" style="height:67%"></div>
+          <div class="bar" style="height:78%"></div><div class="bar" style="height:92%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+ <div class="container">
+  <div class="section-head"><h2>Our Services</h2><p>Professional digital services designed to help music, creators and brands reach the right audience.</p></div>
+  <div class="services">
+   <article class="card"><div class="icon">▶</div><h3>01 — YouTube CMS</h3><p>Manage, protect and grow your YouTube channel presence with professional content management and channel solutions.</p></article>
+   <article class="card"><div class="icon">♪</div><h3>02 — Music Distribution</h3><p>Take your music to major streaming and digital platforms with streaming distribution experience built for artists.</p></article>
+   <article class="card"><div class="icon">🚀</div><h3>03 — Song Launching Event</h3><p>Plan and promote your song launch with a digital-first campaign designed to create attention around release day.</p></article>
+   <article class="card"><div class="icon">🎵</div><h3>04 — Song Project Management</h3><p>Coordinate your music project from planning and release preparation to digital promotion and execution.</p></article>
+   <article class="card"><div class="icon">📱</div><h3>05 — Song & Reel Promotion</h3><p>Push songs and short-form content with targeted digital promotion built around visibility and engagement.</p></article>
+   <article class="card"><div class="icon">✦</div><h3>06 — Brand Promotion</h3><p>Build brand awareness through digital campaigns, creator-focused promotion and strategic media support.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container about">
+  <div class="about-box">
+   <div class="badge">ABOUT THE COMPANY</div>
+   <h3>One partner for your digital media journey.</h3>
+   <p>From channel management and music distribution to launches and promotions, Pallavi Digital Media brings your digital projects together under one professional workflow.</p>
+  </div>
+  <div>
+   <div class="section-head" style="text-align:left;margin:0 0 20px"><h2>Why Pallavi Digital Media?</h2><p>Focused support for artists, music projects, creators and brands.</p></div>
+   <div class="points">
+    <div class="point"><b>Digital First</b><span>Strategies built for today's online audience.</span></div>
+    <div class="point"><b>Creator Focused</b><span>Services designed around music and content.</span></div>
+    <div class="point"><b>End-to-End</b><span>Management, launch and promotion in one place.</span></div>
+    <div class="point"><b>Growth Mindset</b><span>Designed to improve reach and digital presence.</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="section-head"><h2>Let's Work Together</h2><p>Ready to launch, manage or promote your next digital project?</p></div>
+  <div class="contact">
+   <div class="contact-card">
+    <h3 style="font-size:27px;margin-bottom:10px">Pallavi Digital Media</h3>
+    <p style="color:#aeb4c2">Your digital media partner for YouTube, music and promotion.</p>
+    <div style="margin-top:20px"><a class="btn" href="mailto:pallavidigtalmedia@gmail.com">Email Us</a></div>
+   </div>
+   <div class="contact-card">
+    <div class="contact-item"><small>Owner</small><b>Ashish BaBa</b></div>
+    <div class="contact-item"><small>Email</small><a href="mailto:pallavidigtalmedia@gmail.com">pallavidigtalmedia@gmail.com</a></div>
+    <div class="contact-item"><small>Phone / WhatsApp</small><a href="tel:+918809969247">+91 8809969247</a></div>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container" style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
+  <span>© 2026 Pallavi Digital Media. All rights reserved.</span>
+  <span>Owner: Ashish BaBa</span>
+ </div>
+</footer>
+</body>
+</html>
