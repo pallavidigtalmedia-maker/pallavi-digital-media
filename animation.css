@@ -1,0 +1,121 @@
+
+/* PALLAVI DIGITAL MEDIA - 3D ANIMATION */
+
+:root {
+  --pdm-gold: #ffd700;
+  --pdm-dark: #080d1b;
+}
+
+/* 3D Hero Background */
+.pdm-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #080d1b, #172b50, #080d1b);
+  padding: 90px 20px;
+  text-align: center;
+  perspective: 1000px;
+  isolation: isolate;
+}
+
+.pdm-hero::before,
+.pdm-hero::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 2px solid rgba(255,215,0,.35);
+  border-radius: 50%;
+  animation: pdmOrbit 12s linear infinite;
+  z-index: -1;
+}
+
+.pdm-hero::after {
+  width: 350px;
+  height: 350px;
+  animation-direction: reverse;
+}
+
+/* 3D Gold Heading */
+.pdm-title {
+  color: var(--pdm-gold);
+  font-size: clamp(30px, 6vw, 65px);
+  font-weight: 900;
+  text-shadow:
+    1px 1px 0 #b8860b,
+    2px 2px 0 #a47500,
+    3px 3px 0 #805500,
+    5px 5px 12px rgba(0,0,0,.7),
+    0 0 25px rgba(255,215,0,.7);
+  animation: pdmFloat 3s ease-in-out infinite;
+}
+
+/* 3D Cards */
+.pdm-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .4s ease, box-shadow .4s ease;
+  border-radius: 18px;
+}
+
+.pdm-card:hover {
+  transform: perspective(800px) rotateY(7deg) rotateX(5deg) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.3);
+}
+
+/* Glowing Buttons */
+.pdm-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 35px;
+  color: #111;
+  background: linear-gradient(135deg, #fff2a6, #ffd700, #b8860b);
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(255,215,0,.5);
+  transition: .3s;
+}
+
+.pdm-btn:hover {
+  transform: translateY(-5px) scale(1.06);
+  box-shadow: 0 0 35px rgba(255,215,0,.9);
+}
+
+/* Floating Animation */
+@keyframes pdmFloat {
+  0%, 100% { transform: translateY(0) rotateX(0); }
+  50% { transform: translateY(-12px) rotateX(5deg); }
+}
+
+@keyframes pdmOrbit {
+  from { transform: rotate(0deg) scale(.8); }
+  to { transform: rotate(360deg) scale(1.2); }
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile Support */
+@media (max-width: 600px) {
+  .pdm-hero {
+    padding: 65px 15px;
+  }
+  .pdm-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .pdm-title, .pdm-hero::before, .pdm-hero::after {
+    animation: none;
+  }
+}
